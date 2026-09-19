@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tab Organizer — Privacy</title>
+<meta name="description" content="What Tab Organizer reads, where it is kept, and the only case in which anything leaves your browser.">
+<link rel="icon" href="icon.png">
+<style>
+  /* Same tokens as index.html so the two pages are one site. */
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --fg:#12161c; --muted:#767d89;
+    --accent:#1a3cff; --gold:#c8a415; --line:#e4e7ec; --chip:#eef1f6;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0d1117; --card:#161b22; --fg:#e6edf3; --muted:#9aa4b2;
+      --accent:#5b7cff; --gold:#e8c547; --line:#2a313c; --chip:#1b222c;
+    }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:0 20px 72px; color:var(--fg); background:var(--bg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.62;
+  }
+  .wrap{max-width:720px; margin:0 auto}
+  header{padding:44px 0 6px}
+  h1{font-size:1.9rem; margin:0 0 4px}
+  .sub{color:var(--muted); font-size:.9rem; margin:0 0 4px}
+  .lede{background:var(--card); border:1px solid var(--line);
+        border-left:4px solid var(--gold); border-radius:0 12px 12px 0;
+        padding:16px 20px; margin:26px 0}
+  h2{font-size:1.12rem; margin:34px 0 8px; padding-bottom:6px;
+     border-bottom:1px solid var(--line)}
+  ul{padding-left:22px} li{margin:7px 0}
+  a{color:var(--accent)}
+  footer{margin-top:44px; padding-top:16px; border-top:1px solid var(--line);
+         color:var(--muted); font-size:.85rem; text-align:center}
+  footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Privacy</h1>
+  <p class="sub">Tab Organizer — last updated 19 September 2026</p>
+</header>
+
+<div class="lede">Tab Organizer runs entirely inside your own copy of Chrome.
+Your tab groups, rules and settings are stored <strong>in your browser profile
+on your computer</strong>. There is no account, no server of ours, and no
+analytics. The only time anything leaves your browser is when you use an AI
+feature, and then it goes straight to the AI provider you chose, with your own
+key.</div>
+
+<h2>What it reads</h2>
+<ul>
+  <li>The title, address and tab group of your open tabs — that is the material
+      it sorts.</li>
+  <li>The names and colours of your existing tab groups and windows.</li>
+</ul>
+<p>It reads them when you ask it to: opening the popup or dashboard, running
+Classify, removing duplicates or merging groups. It does not watch your
+browsing in the background, and it has no code that runs on the pages you
+visit.</p>
+
+<h2>What it stores, and where</h2>
+<p>Everything is kept in Chrome's own extension storage, on your computer, for
+that Chrome profile alone:</p>
+<ul>
+  <li>Your tab groups and their descriptions, including previous versions of
+      them.</li>
+  <li>Your rules, plus counts of how often each one has matched.</li>
+  <li>Your settings, edited prompts, and your API key in encrypted form.</li>
+  <li>A history of tabs you have classified — titles and addresses — which you
+      can clear at any time in the dashboard.</li>
+</ul>
+<p>The extension never uses Chrome's sync storage, so none of this is copied to
+your other devices or your Google account by the extension. Removing the
+extension removes it all.</p>
+
+<h2>The only thing that is sent anywhere</h2>
+<p>When you run an AI feature — classifying tabs, building or editing a set of
+groups, or asking for a rule suggestion — the extension sends, directly from
+your browser to the provider you selected:</p>
+<ul>
+  <li>the titles and addresses of the tabs in that request;</li>
+  <li>your group names and descriptions, so the model can choose between them;</li>
+  <li>the prompt text, which you can read and edit in the dashboard.</li>
+</ul>
+<p>The request goes to <strong>OpenAI</strong> or <strong>Anthropic</strong> —
+whichever you configured — authenticated with your own API key, and is covered
+by that provider's terms and privacy policy. Nothing is sent if you never
+configure a key, and the rules-only parts of the extension work without one.</p>
+
+<h2>Your API key</h2>
+<p>Your key is encrypted in your browser with a passphrase you choose
+(PBKDF2-SHA256, 600,000 rounds, AES-GCM), and can be unlocked with Touch ID
+where your device supports it. It is decrypted only in the page that is making
+a request, never written anywhere in plain text, and never sent anywhere except
+to that provider as the request's credential.</p>
+
+<h2>Files you create</h2>
+<p>Backups, config exports and CSV exports are written to your Downloads folder
+when you ask for them. They contain your setup, and are as private as the
+folder you keep them in. An exported key travels only in its encrypted form,
+and your classify history is included only if you tick the box for it.</p>
+
+<h2>What the developer receives</h2>
+<p><strong>Nothing.</strong> No usage data, no crash reports, no tab data, no
+email address. There is no server to receive it.</p>
+
+<h2>Permissions, and why each one exists</h2>
+<ul>
+  <li><strong>tabs</strong> — to read the titles and addresses being sorted, and
+      to move tabs into groups.</li>
+  <li><strong>tabGroups</strong> — to create, rename, colour and merge tab
+      groups.</li>
+  <li><strong>storage</strong> — to keep your groups, rules and settings on your
+      computer.</li>
+  <li><strong>downloads</strong> — to save the backups and exports you ask
+      for.</li>
+  <li><strong>api.openai.com, api.anthropic.com</strong> — so AI requests can be
+      made from the extension itself, rather than through anyone else.</li>
+</ul>
+
+<h2>Children</h2>
+<p>Tab Organizer is a general-purpose productivity tool and is not directed at
+children.</p>
+
+<h2>Changes</h2>
+<p>If a future version sends anything anywhere else, this page will say so
+before that version ships, and the release notes will point at it. Questions or
+corrections: <a href="https://github.com/alex-bisgould/tab-organizer-releases/issues">open an issue</a>.</p>
+
+<footer>
+  <a href="index.html">Download</a> ·
+  <a href="whats-new.html">What's new</a> ·
+  <a href="https://github.com/alex-bisgould/tab-organizer-releases/releases">Releases on GitHub</a>
+</footer>
+
+</div>
+</body>
+</html>
