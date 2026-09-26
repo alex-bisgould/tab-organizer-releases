@@ -44,15 +44,15 @@
 <div class="wrap">
 <header>
   <h1>Privacy</h1>
-  <p class="sub">Tab Organizer — last updated 19 September 2026</p>
+  <p class="sub">Tab Organizer — last updated 25 September 2026</p>
 </header>
 
 <div class="lede">Tab Organizer runs entirely inside your own copy of Chrome.
 Your tab groups, rules and settings are stored <strong>in your browser profile
 on your computer</strong>. There is no account, no server of ours, and no
-analytics. The only time anything leaves your browser is when you use an AI
-feature, and then it goes straight to the AI provider you chose, with your own
-key.</div>
+analytics. The only time anything leaves your computer is when you use an AI
+feature, and then it goes straight to the AI provider you chose — or, with
+Chrome's built-in model, nowhere at all.</div>
 
 <h2>What it reads</h2>
 <ul>
@@ -82,17 +82,32 @@ extension removes it all.</p>
 
 <h2>The only thing that is sent anywhere</h2>
 <p>When you run an AI feature — classifying tabs, building or editing a set of
-groups, or asking for a rule suggestion — the extension sends, directly from
-your browser to the provider you selected:</p>
+groups, or asking for a rule suggestion — the request contains:</p>
 <ul>
   <li>the titles and addresses of the tabs in that request;</li>
   <li>your group names and descriptions, so the model can choose between them;</li>
   <li>the prompt text, which you can read and edit in the dashboard.</li>
 </ul>
-<p>The request goes to <strong>OpenAI</strong> or <strong>Anthropic</strong> —
-whichever you configured — authenticated with your own API key, and is covered
-by that provider's terms and privacy policy. Nothing is sent if you never
-configure a key, and the rules-only parts of the extension work without one.</p>
+<p>Where it goes depends on which of the three AI routes you set up:</p>
+<ul>
+  <li><strong>Chrome's built-in model</strong> runs on your computer. The request
+      never leaves it.</li>
+  <li><strong>Your ChatGPT plan</strong>: the extension hands the request to a
+      small helper you installed yourself, which runs OpenAI's Codex CLI on your
+      computer; the CLI sends it to <strong>OpenAI</strong> under the ChatGPT
+      account you signed it into. The extension never sees that account's
+      credentials. Chrome asks your permission (“communicate with cooperating
+      native applications”) before the extension can talk to the helper at
+      all.</li>
+  <li><strong>An API key</strong>: the extension sends the request directly from
+      your browser to <strong>OpenAI</strong> or <strong>Anthropic</strong>,
+      whichever the key is for, authenticated with that key.</li>
+</ul>
+<p>A request to OpenAI or Anthropic is covered by that provider's terms and
+privacy policy. With <em>Auto</em>, the extension uses the first of those routes
+you have set up, in the order key, ChatGPT, built-in. Nothing is sent if you
+set up none of them, and the rules-only parts of the extension work without
+any.</p>
 
 <h2>Your API key</h2>
 <p>Your key is encrypted in your browser with a passphrase you choose
@@ -121,6 +136,9 @@ email address. There is no server to receive it.</p>
       computer.</li>
   <li><strong>downloads</strong> — to save the backups and exports you ask
       for.</li>
+  <li><strong>nativeMessaging</strong> (optional, asked for only when you
+      connect ChatGPT) — to talk to the helper that runs the Codex CLI on your
+      computer.</li>
   <li><strong>api.openai.com, api.anthropic.com</strong> — so AI requests can be
       made from the extension itself, rather than through anyone else.</li>
 </ul>

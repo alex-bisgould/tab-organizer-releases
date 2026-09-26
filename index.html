@@ -150,9 +150,9 @@
   <div class="card">
     <h2>What it does</h2>
     <div class="grid">
-      <div class="feat"><div class="fi">🗂️</div><div><b>Named groups</b><span>one list of groups and what belongs in each, saved and versioned</span></div></div>
+      <div class="feat"><div class="fi">🗂️</div><div><b>Named groups</b><span>write your own, or start from built-in ones — Email, Docs, Shopping, Travel and thirty more</span></div></div>
       <div class="feat"><div class="fi">⚡</div><div><b>Rules before AI</b><span>a known site or ID in the address decides the group — no API call, no waiting</span></div></div>
-      <div class="feat"><div class="fi">🤖</div><div><b>AI for the rest</b><span>classify what is left with your OpenAI or Anthropic key, in batches you control</span></div></div>
+      <div class="feat"><div class="fi">🤖</div><div><b>AI for the rest</b><span>Chrome's built-in model, your ChatGPT plan, or an OpenAI or Anthropic key — no key needed</span></div></div>
       <div class="feat"><div class="fi">✍️</div><div><b>Prompts you can edit</b><span>every prompt is a template — change the wording, reset it any time</span></div></div>
       <div class="feat"><div class="fi">🧹</div><div><b>Duplicates gone</b><span>close repeat tabs and merge tab groups that ended up with the same name</span></div></div>
       <div class="feat"><div class="fi">🪟</div><div><b>Windows sorted</b><span>send each group's tabs to the window it belongs in</span></div></div>
@@ -182,7 +182,7 @@
     <ol>
       <li>Click the Tab Organizer icon, then <b>Open Dashboard</b>.</li>
       <li>Under <b>Tab Groups</b>, write the groups you want and a line about what belongs in each.
-        Or add an AI key under Settings and let it suggest a set from the tabs you have open.</li>
+        Or pick from the built-in groups there, or let AI suggest a set from the tabs you have open.</li>
       <li>Go to <b>Classify Tabs</b>, run it, review what it proposes, and apply. Nothing moves
         until you say so.</li>
     </ol>
@@ -191,10 +191,24 @@
   </div>
 
   <div class="card">
+    <h2>AI, with or without a key</h2>
+    <ul>
+      <li><b>Chrome's built-in model</b> — runs on your computer, needs nothing but a one-time
+        download from Settings. Nothing leaves the machine.</li>
+      <li><b>Your ChatGPT plan</b> — through OpenAI's Codex CLI and a small helper you install once:
+        <a href="https://github.com/alex-bisgould/tab-organizer-releases/releases/latest/download/tab-organizer-chatgpt-bridge.zip">download the bridge</a>
+        and follow its README (macOS and Linux; Windows not yet tested).</li>
+      <li><b>An OpenAI or Anthropic API key</b> — stored encrypted behind a passphrase.</li>
+    </ul>
+    <p class="fineprint">Leave it on <b>Auto</b> and it uses whichever of those you have set up.</p>
+  </div>
+
+  <div class="card">
     <h2>What leaves your browser</h2>
-    <p class="fineprint">Nothing, until you use an AI feature. Then the titles and addresses of the
-      tabs being sorted — and your group names and descriptions — go to the provider you chose,
-      with your own key. There is no server of ours, no account and no analytics. Full details on
+    <p class="fineprint">Nothing, until you use an AI feature — and with the built-in model, not even
+      then. Otherwise the titles and addresses of the tabs being sorted, and your group names and
+      descriptions, go to the provider you chose: OpenAI or Anthropic with your key, or OpenAI via
+      your own Codex CLI. There is no server of ours, no account and no analytics. Full details on
       the <a href="privacy.html">privacy page</a>.</p>
   </div>
 
