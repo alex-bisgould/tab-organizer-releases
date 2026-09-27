@@ -60,10 +60,13 @@ Chrome's built-in model, nowhere at all.</div>
       it sorts.</li>
   <li>The names and colours of your existing tab groups and windows.</li>
 </ul>
-<p>It reads them when you ask it to: opening the popup or dashboard, running
-Classify, removing duplicates or merging groups. It does not watch your
-browsing in the background, and it has no code that runs on the pages you
-visit.</p>
+<p>It reads them when you ask it to — opening the popup or dashboard, running
+Classify, removing duplicates or merging groups — and in one other case: a
+small background part of the extension counts duplicate tabs when your tabs
+change, so the number on the toolbar icon and the popup's figures are ready.
+That count uses only the addresses of your open tabs, is kept in Chrome's
+temporary storage on your computer, and is never sent anywhere. The extension
+has no code that runs on the pages you visit.</p>
 
 <h2>What it stores, and where</h2>
 <p>Everything is kept in Chrome's own extension storage, on your computer, for
@@ -75,6 +78,11 @@ that Chrome profile alone:</p>
   <li>Your settings, edited prompts, and your API key in encrypted form.</li>
   <li>A history of tabs you have classified — titles and addresses — which you
       can clear at any time in the dashboard.</li>
+  <li>When the popup closes tabs, their addresses, places and group names for
+      ten minutes, so Undo can reopen them. This is in Chrome's temporary
+      storage, which is cleared when Chrome closes.</li>
+  <li>How long the popup took to open, the last 20 times. It is never included
+      in a backup.</li>
 </ul>
 <p>The extension never uses Chrome's sync storage, so none of this is copied to
 your other devices or your Google account by the extension. Removing the
