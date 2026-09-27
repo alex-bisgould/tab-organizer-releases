@@ -44,7 +44,7 @@
 <div class="wrap">
 <header>
   <h1>Privacy</h1>
-  <p class="sub">Tab Organizer — last updated 25 September 2026</p>
+  <p class="sub">Tab Organizer — last updated 26 September 2026</p>
 </header>
 
 <div class="lede">Tab Organizer runs entirely inside your own copy of Chrome.
@@ -103,6 +103,14 @@ groups, or asking for a rule suggestion — the request contains:</p>
       your browser to <strong>OpenAI</strong> or <strong>Anthropic</strong>,
       whichever the key is for, authenticated with that key.</li>
 </ul>
+<p><strong>Jev</strong> is optional, and only classifies. If you add a TypeSafe
+key, Classify first asks Jev, from TypeSafe AI, which of your groups each tab
+belongs in. For each tab, the extension sends its title, its site and its address
+(without the part after <code>?</code> or <code>#</code>), plus your group names and
+descriptions, directly from your browser to <strong>TypeSafe</strong>,
+authenticated with your key. Only the tabs Jev is unsure of then go on to the AI
+route above. TypeSafe's handling of that data is covered by its
+<a href="https://typesafe.ai/legal/privacy-policy">privacy policy</a>.</p>
 <p>A request to OpenAI or Anthropic is covered by that provider's terms and
 privacy policy. With <em>Auto</em>, the extension uses the first of those routes
 you have set up, in the order key, ChatGPT, built-in. Nothing is sent if you
@@ -139,6 +147,9 @@ email address. There is no server to receive it.</p>
   <li><strong>nativeMessaging</strong> (optional, asked for only when you
       connect ChatGPT) — to talk to the helper that runs the Codex CLI on your
       computer.</li>
+  <li><strong>api.typesafe.ai</strong> (optional, asked for only when you save a
+      TypeSafe key) — so Jev's requests go from the extension itself to
+      TypeSafe.</li>
   <li><strong>api.openai.com, api.anthropic.com</strong> — so AI requests can be
       made from the extension itself, rather than through anyone else.</li>
 </ul>
