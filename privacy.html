@@ -44,7 +44,7 @@
 <div class="wrap">
 <header>
   <h1>Privacy</h1>
-  <p class="sub">Tab Organizer — last updated 26 September 2026</p>
+  <p class="sub">Tab Organizer — last updated 1 October 2026</p>
 </header>
 
 <div class="lede">Tab Organizer runs entirely inside your own copy of Chrome.
@@ -75,9 +75,15 @@ that Chrome profile alone:</p>
   <li>Your tab groups and their descriptions, including previous versions of
       them.</li>
   <li>Your rules, plus counts of how often each one has matched.</li>
-  <li>Your settings, edited prompts, and your API key in encrypted form.</li>
+  <li>Your settings, edited prompts, and your API key in encrypted form —
+      along with the name you give the profile (such as “Personal”), which
+      labels its backups.</li>
   <li>A history of tabs you have classified — titles and addresses — which you
       can clear at any time in the dashboard.</li>
+  <li>Your most recent Classify run, until you apply it: the titles and
+      addresses of the tabs it placed and the groups it proposed, so closing
+      the dashboard first loses nothing. Applying, cancelling or discarding it
+      deletes it, and the next run replaces it.</li>
   <li>When the popup closes tabs, their addresses, places and group names for
       ten minutes, so Undo can reopen them. This is in Chrome's temporary
       storage, which is cleared when Chrome closes.</li>
@@ -136,7 +142,8 @@ to that provider as the request's credential.</p>
 <p>Backups, config exports and CSV exports are written to your Downloads folder
 when you ask for them. They contain your setup, and are as private as the
 folder you keep them in. An exported key travels only in its encrypted form,
-and your classify history is included only if you tick the box for it.</p>
+and your classify history and unapplied Classify run are included in a backup
+only if you tick the box for them; a config export never includes either.</p>
 
 <h2>What the developer receives</h2>
 <p><strong>Nothing.</strong> No usage data, no crash reports, no tab data, no
